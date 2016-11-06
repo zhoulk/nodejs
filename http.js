@@ -3,7 +3,7 @@ var fs = require('fs');
 var url = require('url'),
     path = require('path');
 
-var root = path.resolve(process.argv[2] || '.') + '/../';
+var root = path.resolve(process.argv[2] || '.') + '/html/';
 
 console.log('Static root dir: ' + root);
 
