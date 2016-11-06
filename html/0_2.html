@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+
+	function abs(x){
+		if (typeof x !== 'number') {
+			throw 'Not a number';
+		};
+		if (x > 0) {
+			return x;
+		}else{
+			return -x;
+		};
+	}
+
+	console.log(abs(-1), abs(2));
+
+	function sum(...rest){
+		var total = 0;
+		for (var i = rest.length - 1; i >= 0; i--) {
+			total += rest[i];
+		};
+		return total;
+	}
+
+	console.log(sum(1,2,3), sum(1,2,[1,2,3,4,5,5],3));
+
+	var xiaoming = {
+		birth : 1000,
+		age : function(){
+			console.log(this.birth);
+			var thus = this;
+			function fn(){
+				return 1 + thus.birth;
+			}
+			return fn();
+		}
+	}
+
+	console.log(xiaoming.age());
+
+	var arr = [1,2,3,4,5,6];
+	function pow(x){
+		return x*x;
+	}
+	console.log(arr.map(pow));
+	console.log(arr.map(String));
+
+	var result = arr.reduce(function(x, y){
+					return x * y;
+				});
+	console.log(result);
+
+	'a,b,c,A,d,d,d'.split(',').map(function(x){
+		console.log(x);
+	})
+
+	arr = ['adam', 'LISA', 'barT'];
+
+	arr.map(function(word){
+		var nWord = '';
+		for (var i = word.length - 1; i >= 0; i--) {
+			if (i==0) {
+				nWord = word[i].toUpperCase() + nWord;
+			}else{
+				nWord = word[i].toLowerCase() + nWord;
+			};
+		};
+		console.log(nWord);
+	});
+
+	var fr = arr.filter(function(word){
+		return !word.indexOf('L');
+	});
+
+	console.log(fr);
+
+	function* next_id(){
+		var index = 0;
+		while(true){
+			yield index++;
+		}
+	}
+
+	var gen = next_id();
+
+	console.log(gen.next().value);
+	console.log(gen.next().value);
+	console.log(gen.next());
+	console.log(gen.next());
+
+	(function fn(x){
+		console.log(x);
+	})(10);
+
+	</script>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
