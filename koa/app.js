@@ -12,7 +12,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 app.use(async(ctx, next) => {
 	console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
-
 	await next();
     // ctx.response.type = 'text/html';
     // ctx.response.body = '<h1>Hello, koa2!</h1>';
